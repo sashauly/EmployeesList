@@ -1,6 +1,5 @@
-// src/store.ts
 import { applyMiddleware, createStore } from "redux";
-import { employeeReducer } from "./reducers";
+import { employeeReducer } from "./redux/employee.reducers";
 import { thunk } from "redux-thunk";
 
 const store = createStore(employeeReducer, applyMiddleware(thunk));
