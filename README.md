@@ -17,11 +17,14 @@
 
 This is SPA for employees list that demonstrates how to use [React](https://reactjs.org/), [Redux](https://redux.js.org/) and [Node.js](https://nodejs.org/en/) and [TypeScript](https://www.typescriptlang.org/).
 
+You can check out hosted version of this project [on GitHub Pages](https://sashauly.github.io/EmployeesList/).
+
 ## Getting started
 
 To get started with this project, you'll need to have the following installed:
 
-- [Node.js](https://nodejs.org/en/) with [npm](https://www.npmjs.com/)
+- [Node.js](https://nodejs.org/en/) v20.12.2(LTS at the time of writing)
+- [npm](https://www.npmjs.com/) v10.5.0
 
 Once you have these installed, you can follow these steps:
 
