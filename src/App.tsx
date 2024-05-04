@@ -1,8 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { EmployeesList } from "./components/EmployeesList";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import EmployeeDetails from "./components/EmployeeDetails";
+import { EmployeesList } from "./components/EmployeesList";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <EmployeesList />,
