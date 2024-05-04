@@ -44,7 +44,8 @@ export const fetchEmployee =
   };
 
 export const updateEmployee =
-  (employeeData: any) => async (dispatch: Dispatch<AnyAction>) => {
+  (employeeData: Partial<Employee>) =>
+  async (dispatch: Dispatch<AnyAction>) => {
     dispatch(updateEmployeeRequest());
     try {
       const response = await fetch(
