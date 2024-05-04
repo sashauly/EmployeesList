@@ -18,13 +18,13 @@ function App() {
     <>
       <RouterProvider router={router} />
       <p>
-        Data from API:{" "}
+        Data from API:&nbsp;
         <a href="https://jsonplaceholder.typicode.com/users">
           JSON Placeholder
         </a>
       </p>
       <p>
-        Employees List &copy;
+        Employees List &amp; Details by&nbsp;
         <a href="https://github.com/sashauly">sashauly</a>, 2024
       </p>
     </>

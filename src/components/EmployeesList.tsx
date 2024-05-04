@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchEmployees } from "../redux/employee.thunk";
-import { Employee, EmployeeState } from "../redux/employee.types";
-import { AppDispatch } from "../store";
 import { useNavigate } from "react-router-dom";
-import style from "./EmployeesList.module.css";
+import { fetchEmployees } from "../modules/employee/employee.thunk";
+import { Employee, EmployeeState } from "../modules/employee/employee.types";
+import { AppDispatch } from "../store";
+import style from "../style/EmployeesList.module.css";
 import CustomButton from "./CustomButton";
 
 export const EmployeesList: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { employees, isLoading, error } = useSelector(
-    (state: EmployeeState) => state
-  );
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+
+  const { employees, isLoading, error } = useSelector(
+    (state: { employee: EmployeeState }) => state.employee
+  );
 
   const onRefreshClick = () => {
     dispatch(fetchEmployees());

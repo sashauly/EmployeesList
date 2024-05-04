@@ -1,19 +1,38 @@
-import React, { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchEmployee, updateEmployee } from "../redux/employee.thunk";
+import { Link, useParams } from "react-router-dom";
+import { setEditMode } from "../modules/employee/employee.actions";
+import {
+  fetchEmployee,
+  updateEmployee,
+} from "../modules/employee/employee.thunk";
+import { Employee, EmployeeState } from "../modules/employee/employee.types";
 import { AppDispatch } from "../store";
-import { Employee, EmployeeState } from "../redux/employee.types";
-import style from "./EmployeesList.module.css";
+import style from "../style/EmployeesList.module.css";
 import CustomButton from "./CustomButton";
-import { setEditMode } from "../redux/employee.actions";
 import EditForm from "./EditForm";
 
-const EmployeeDetails = () => {
-  const { id } = useParams();
+interface EmployeeNotFoundProps {
+  id: string;
+}
+
+const EmployeeNotFound: React.FC<EmployeeNotFoundProps> = ({
+  id,
+}: EmployeeNotFoundProps) => (
+  <>
+    <h1>Employee not found!</h1>
+    <p>Employee with the ID {id} is not found.</p>
+    <p>Please check the URL and try again.</p>
+    <Link to="/">Go back to the list</Link>
+  </>
+);
+
+const EmployeeDetails: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch<AppDispatch>();
+
   const { selectedEmployee, isLoading, isEditing, error } = useSelector(
-    (state: EmployeeState) => state
+    (state: { employee: EmployeeState }) => state.employee
   );
 
   useEffect(() => {
@@ -32,44 +51,45 @@ const EmployeeDetails = () => {
     dispatch(fetchEmployee(Number(id)));
   };
 
+  function isOrgDomain() {
+    return selectedEmployee?.website.endsWith(".org");
+  }
+
+  if (!selectedEmployee || !selectedEmployee.id)
+    return <EmployeeNotFound id={id as string} />;
+
   if (isLoading) return <div>Loading...</div>;
-  if (!selectedEmployee) return <div>Employee not found</div>;
-  if (error)
-    return (
-      <div>
-        Error: {error}
-        <CustomButton onClick={() => dispatch(fetchEmployee(Number(id)))}>
-          Retry
-        </CustomButton>
-      </div>
-    );
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div className={style.employee__container}>
-      <div className={style.employee__header}>
-        <Link to="/">Go Back</Link>
-        <div className={style.employee__buttons}>
-          <CustomButton disabled={isEditing} onClick={handleEditClick}>
-            Edit
-          </CustomButton>
-          <CustomButton disabled={isEditing} onClick={handleRefreshClick}>
-            Refresh
-          </CustomButton>
-        </div>
-      </div>
+      <h1>
+        <Link to="/">Employees</Link>
+      </h1>
+      <CustomButton disabled={isEditing} onClick={handleRefreshClick}>
+        Refresh
+      </CustomButton>
       {isEditing ? (
         <EditForm
           employee={selectedEmployee as Employee}
           onSubmit={handleEditSubmit}
         />
       ) : (
-        <div className={style.employee__details}>
-          <h1>{selectedEmployee?.name}</h1>
-          <p>email: {selectedEmployee?.email}</p>
-          <p>phone: {selectedEmployee?.phone}</p>
-          <p>username: {selectedEmployee?.username}</p>
-          <p>website: {selectedEmployee?.website}</p>
-        </div>
+        <>
+          <div className={style.employee__details}>
+            <h2>{selectedEmployee?.name}</h2>
+            <p>e-mail: {selectedEmployee?.email}</p>
+            <p>Phone: {selectedEmployee?.phone}</p>
+            <p>Username: {selectedEmployee?.username}</p>
+            {isOrgDomain() && <p>Website: {selectedEmployee?.website}</p>}
+          </div>
+          <CustomButton disabled={isEditing} onClick={handleEditClick}>
+            Edit
+          </CustomButton>
+        </>
       )}
     </div>
   );
