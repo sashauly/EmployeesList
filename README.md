@@ -1,11 +1,15 @@
 # EmployeesList
 
-## Screenshot
+## Screenshots
+
+![image](https://github.com/sashauly/EmployeesList/assets/77851963/d1e960ac-d3e6-4ede-8a2d-4fcfc9da6741)
+![image](https://github.com/sashauly/EmployeesList/assets/77851963/14c78029-ab09-4cd5-8abd-1f32e3052a81)
+![image](https://github.com/sashauly/EmployeesList/assets/77851963/8f9da68a-213e-4fbf-b26d-b9f8b330e36e)
 
 ## Table of contents
 
 - [EmployeesList](#employeeslist)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
   - [Table of contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Getting started](#getting-started)
@@ -35,15 +39,17 @@ Once you have these installed, you can follow these steps:
 ## Technology
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+API is halded by [JSON Placeholder](https://jsonplaceholder.typicode.com/)
 
 - [React](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
+- [react-hook-form](https://react-hook-form.com/)
 - [Node.js](https://nodejs.org/en/)
 - [TypeScript](https://www.typescriptlang.org/)
 
 ## Project status
 
-Project is: _in progress_
+Project is: _completed_
 
 ## Contacts
 
