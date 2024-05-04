@@ -9,7 +9,7 @@ const initialState: EmployeeState = {
   error: null,
 };
 
-export const employeeReducer = (
+export const employeeReducer: React.Reducer<EmployeeState, AnyAction> = (
   state = initialState,
   action: AnyAction
 ): EmployeeState => {

@@ -13,14 +13,14 @@ import {
 } from "./employee.actions";
 import { Employee, EmployeeState } from "./employee.types";
 
+const baseUrl = "https://jsonplaceholder.typicode.com/users";
+
 export const fetchEmployees =
   (): ThunkAction<void, EmployeeState, unknown, AnyAction> =>
   async (dispatch: Dispatch<AnyAction>) => {
     dispatch(fetchEmployeeListRequest());
     try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users"
-      );
+      const response = await fetch(baseUrl);
       const data: Employee[] = await response.json();
       dispatch(fetchEmployeeListSuccess(data));
     } catch (error) {
@@ -33,9 +33,7 @@ export const fetchEmployee =
   async (dispatch: Dispatch<AnyAction>) => {
     dispatch(fetchEmployeeRequest());
     try {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/users/${id}`
-      );
+      const response = await fetch(`${baseUrl}/${id}`);
       const data: Employee = await response.json();
       dispatch(fetchEmployeeSuccess(data));
     } catch (error) {
@@ -48,16 +46,13 @@ export const updateEmployee =
   async (dispatch: Dispatch<AnyAction>) => {
     dispatch(updateEmployeeRequest());
     try {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/users/${employeeData.id}`,
-        {
-          method: "PUT",
-          body: JSON.stringify(employeeData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`${baseUrl}/${employeeData.id}`, {
+        method: "PUT",
+        body: JSON.stringify(employeeData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const data = await response.json();
       dispatch(updateEmployeeSuccess(data));
     } catch (error) {

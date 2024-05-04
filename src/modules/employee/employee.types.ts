@@ -20,6 +20,7 @@ export interface Employee {
     catchPhrase: string;
     bs: string;
   };
+  [key: string]: unknown;
 }
 
 export interface EmployeeState {
