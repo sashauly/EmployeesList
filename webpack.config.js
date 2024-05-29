@@ -55,25 +55,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        oneOf: [
-          {
-            test: /\.module\.css$/i,
-            use: [
-              MiniCssExtractPlugin.loader,
-              {
-                loader: "css-loader",
-                options: {
-                  modules: {
-                    localIdentName: "[name]__[local]__[contenthash:base64:5]",
-                  },
-                },
-              },
-            ],
-          },
-          {
-            use: [MiniCssExtractPlugin.loader, "css-loader"],
-          },
-        ],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
