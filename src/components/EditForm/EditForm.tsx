@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { setEditMode } from "../modules/employee/employeeDetails/employeeDetails.actions";
-import { Employee } from "../modules/employee/employeeDetails/employeeDetails.types";
-import style from "../style/EmployeesList.module.css";
-import CustomButton from "./CustomButton";
+import { setEditMode } from "../../modules/employee/employeeDetails/employeeDetails.actions";
+import { Employee } from "../../modules/employee/employeeDetails/employeeDetails.types";
+import CustomButton from "../CustomButton";
+import style from "./EditForm.module.css";
 
 interface EmployeeEditFormProps {
   employee: Employee;

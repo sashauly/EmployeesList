@@ -1,17 +1,17 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { setEditMode } from "../modules/employee/employeeDetails/employeeDetails.actions";
+import { setEditMode } from "../../modules/employee/employeeDetails/employeeDetails.actions";
 import {
   fetchEmployee,
   updateEmployee,
-} from "../modules/employee/employeeDetails/employeeDetails.thunk";
-import { Employee } from "../modules/employee/employeeDetails/employeeDetails.types";
-import { RootState } from "../reducers";
-import { AppDispatch } from "../store";
-import style from "../style/EmployeesList.module.css";
-import CustomButton from "./CustomButton";
-import EditForm from "./EditForm";
+} from "../../modules/employee/employeeDetails/employeeDetails.thunk";
+import { Employee } from "../../modules/employee/employeeDetails/employeeDetails.types";
+import { RootState } from "../../reducers";
+import { AppDispatch } from "../../store";
+import CustomButton from "../CustomButton";
+import EditForm from "../EditForm/EditForm";
+import style from "./EmployeeDetails.module.css";
 
 interface EmployeeNotFoundProps {
   id: string;

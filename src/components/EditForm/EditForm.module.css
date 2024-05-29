@@ -1,0 +1,31 @@
+.employee__form {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-gap: 1rem;
+  width: 100%;
+  align-items: start;
+  justify-items: flex-start;
+}
+
+@media (max-width: 600px) {
+  .employee__form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.employee__form__input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.employee__form__error {
+  color: red;
+}
+
+.employee__form__actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
