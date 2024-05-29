@@ -1,0 +1,43 @@
+.employees__container {
+  display: flex;
+  min-width: 50vw;
+  gap: 1.25rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.employees__list {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.employees__list__item {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: inherit;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.employees__list__item:hover {
+  transform: scale(1.015);
+}
+.employees__list__item > h3 {
+  margin: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  .employees__list__item {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}

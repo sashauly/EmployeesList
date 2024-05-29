@@ -1,0 +1,30 @@
+.employee__container {
+  display: flex;
+  min-width: 25vw;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.employee__container > h1 > a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.employee__container > h1:hover > a {
+  text-decoration: underline;
+  color: blue;
+}
+
+.employee__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.employee__details > p {
+  margin: 0;
+}

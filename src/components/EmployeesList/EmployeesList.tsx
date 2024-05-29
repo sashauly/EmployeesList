@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Employee } from "../modules/employee/employeeDetails/employeeDetails.types";
-import { fetchEmployees } from "../modules/employee/employeesList/employeesList.thunk";
-import { RootState } from "../reducers";
-import { AppDispatch } from "../store";
-import style from "../style/EmployeesList.module.css";
-import CustomButton from "./CustomButton";
+import { Employee } from "../../modules/employee/employeeDetails/employeeDetails.types";
+import { fetchEmployees } from "../../modules/employee/employeesList/employeesList.thunk";
+import { RootState } from "../../reducers";
+import { AppDispatch } from "../../store";
+import CustomButton from "../CustomButton";
+import style from "./EmployeesList.module.css";
 
-export const EmployeesList: React.FC = () => {
+const EmployeesList: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
@@ -56,3 +56,5 @@ export const EmployeesList: React.FC = () => {
     </div>
   );
 };
+
+export default EmployeesList;

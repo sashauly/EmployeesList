@@ -1,6 +1,6 @@
 import { createHashRouter, RouterProvider } from "react-router-dom";
-import EmployeeDetails from "./components/EmployeeDetails";
-import { EmployeesList } from "./components/EmployeesList";
+import EmployeeDetails from "./components/EmployeeDetails/EmployeeDetails";
+import EmployeesList from "./components/EmployeesList/EmployeesList";
 
 const router = createHashRouter([
   {
