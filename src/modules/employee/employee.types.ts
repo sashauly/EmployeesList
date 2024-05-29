@@ -1,32 +1,7 @@
-export interface Employee {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
-  [key: string]: unknown;
-}
+import { EmployeeDetailsStore } from "./employeeDetails/employeeDetails.types";
+import { EmployeesListStore } from "./employeesList/employeesList.types";
 
-export interface EmployeeState {
-  employees: Employee[];
-  selectedEmployee: Employee | null;
-  isEditing: boolean;
-  isLoading: boolean;
-  error: string | null;
-}
+export type EmployeeStore = {
+  employeesList: EmployeesListStore;
+  employeeDetails: EmployeeDetailsStore;
+};

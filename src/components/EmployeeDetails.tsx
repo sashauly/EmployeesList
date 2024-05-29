@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { setEditMode } from "../modules/employee/employee.actions";
+import { setEditMode } from "../modules/employee/employeeDetails/employeeDetails.actions";
 import {
   fetchEmployee,
   updateEmployee,
-} from "../modules/employee/employee.thunk";
-import { Employee, EmployeeState } from "../modules/employee/employee.types";
+} from "../modules/employee/employeeDetails/employeeDetails.thunk";
+import { Employee } from "../modules/employee/employeeDetails/employeeDetails.types";
+import { RootState } from "../reducers";
 import { AppDispatch } from "../store";
 import style from "../style/EmployeesList.module.css";
 import CustomButton from "./CustomButton";
@@ -31,9 +32,11 @@ const EmployeeDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch<AppDispatch>();
 
-  const { selectedEmployee, isLoading, isEditing, error } = useSelector(
-    (state: { employee: EmployeeState }) => state.employee
-  );
+  const {
+    success: { selectedEmployee, isEditing },
+    isLoading,
+    error,
+  } = useSelector((state: RootState) => state.employee.employeeDetails);
 
   useEffect(() => {
     dispatch(fetchEmployee(Number(id)));
