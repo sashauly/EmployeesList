@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { setEditMode } from "../modules/employee/employee.actions";
-import { Employee } from "../modules/employee/employee.types";
+import { setEditMode } from "../modules/employee/employeeDetails/employeeDetails.actions";
+import { Employee } from "../modules/employee/employeeDetails/employeeDetails.types";
 import style from "../style/EmployeesList.module.css";
 import CustomButton from "./CustomButton";
 
