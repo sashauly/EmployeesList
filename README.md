@@ -38,7 +38,7 @@ Once you have these installed, you can follow these steps:
 
 ## Technology
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bundled with [Webpack](https://webpack.js.org/)
 API is halded by [JSON Placeholder](https://jsonplaceholder.typicode.com/)
 
 - [React](https://reactjs.org/)
